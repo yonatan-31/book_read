@@ -1,0 +1,54 @@
+<%- include('partials/header.ejs'); -%>
+
+
+
+<%if(book && locals.summary_note){%>
+<div class="block">   
+    <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn_number %>-L.jpg" 
+        onerror="this.onerror=null;this.src='assets/image/default-cover.jpg';"
+        alt="Book Cover" 
+        style="height:200px;" />
+    <h2><%= book.title %></h2>
+    <p>See my<a href="/"> list books</a>, for more.</p>
+    <p><%= book.short_notes %></p>
+    <p>Rating: <%= book.rating %>/10</p>
+    <p>Read on: <%= book.read_date %></p>
+    <h2>MY NOTE</h2>
+    <div id="summary-display" onclick="enableEdit()" style="cursor:pointer;">
+        <p><%= summary_note %></p>
+    </div>
+    
+    <form id="edit-form" action="/note/edit" method="post" style="display:none;">
+        <input type="hidden" name="book_id" value="<%= book.id %>">
+        <textarea name="summary_note" id="summary-textarea" required><%= summary_note %></textarea><br>
+        <button type="submit">Save</button>
+    </form>
+</div>
+<%}else{%>
+    <div class="block">
+    <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn_number %>-L.jpg" 
+    onerror="this.onerror=null;this.src='assets/image/default-cover.jpg';"
+    alt="Book Cover" 
+    style="height:200px;" />
+    <h2><%= book.title %></h2>
+    <p><%= book.short_notes %></p>
+    <p>Rating: <%= book.rating %>/10</p>
+    <p>Read on: <%= book.read_date %></p>
+
+    <form action="/note/<%= book.id %>" method="post">
+        <input type="hidden" name="book_id" value="<%= book.id %>">
+        <label for="note" class="note">Write Book Summary </label><br>
+        <textarea id="note" name="summary_note" required></textarea><br>
+        <input type="submit" value="Post Summary">
+    </form>
+</div>
+<%}%>
+
+<script>
+    function enableEdit() {
+      document.getElementById('summary-display').style.display = 'none';
+      document.getElementById('edit-form').style.display = 'block';
+      document.getElementById('summary-textarea').focus();
+    }
+  </script>
+<%- include('partials/footer.ejs'); -%>

@@ -1,0 +1,142 @@
+*{
+  box-sizing: border-box;  
+}
+body {
+    background: #21252b;
+    font-family: "Roboto", sans-serif;
+    color: #ccc;
+}
+
+.container{
+    max-width: 40em;
+    margin: 0 auto;
+    padding: 5px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    line-height: 30px;
+}
+.container h1,h2{
+    color: #226fe2;
+}
+.sort a{
+    color: #ccc;
+    font-weight: bold;
+}
+.post{
+ margin-bottom: 5em;  
+ color: #226fe2;
+ background-color: rgb(71, 67, 67);
+ padding: 10px;
+ border-radius: 10px;
+ text-decoration: none;
+ font-weight: bold;
+}
+.block{
+    margin: 50px 0;
+}
+.block img{
+    float: left;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.block p{
+    margin: 10px 0;
+}
+.redirect a{
+    color: #226fe2;
+    text-decoration: none;
+}
+.modify{
+    display: flex;    
+}
+.modify button{
+    margin-right: 15px;
+    padding: 10px;
+    background-color: #226fe2; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+#note {
+    width: 100%;          
+    height: 300px;       
+    font-size: 16px;      
+    padding: 10px;
+    border: 2px solid #14386e;
+    background: transparent;
+    resize: vertical; 
+    color: #fff;  
+  }
+.button{
+    margin-right: 15px;
+    padding: 10px;
+    background-color: #226fe2; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+/*form data*/
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    
+    margin-top: 30px;
+  }
+
+  .form-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+  }
+  .note{
+    color: #fff;
+    margin-bottom: 0;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 200px;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+.block a{
+color: #226fe2;
+}

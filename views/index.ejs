@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs'); -%>
+
+    <h1> YONATAN ASMARE </h1>
+    <h2>BOOKS T'VE READ </h2>
+    <P>Tiny summary but detailed notes for each. Use the ISBN number to find it from your local library or anywhere else. 
+        This page will constantly update as I read more, so bookmark it if you want to check back in a few months.Sorted with my top recommendations up top. 
+    <p class="sort">
+        Sort by: 
+        <a href="/?sort=title">TITLE</a>, 
+        <a href="/?sort=newest">NEWEST</a>, 
+        <a href="/?sort=best">BEST</a>.
+    </p>
+    <a href="/post" class="post">Post new Book</a>
+
+    <% books.forEach(book => { %>
+        <div class="block">
+            <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn_number %>-L.jpg" 
+            onerror="this.onerror=null;this.src='assets/image/default-cover.jpg';"
+            alt="Book Cover" 
+            style="height:200px;" />
+            <h2><%= book.title %></h2>
+            <p><%= book.short_notes %></p>
+            <p>Rating: <%= book.rating %>/10</p>
+            <p>Read on: <%= book.read_date %></p>
+
+            <p class="redirect">
+                Read my <a href="/note/<%= book.id %>">notes</a>, or go to the 
+                <a href="https://www.amazon.com/s?k=<%= book.isbn_number %>" target="_blank">Amazon</a> page for details and reviews.
+            </p>
+            <div class="modify">
+                <form action="/edit" method="post" >
+                    <button type="submit" name="book" value="<%= book.id %>">EDIT</button>
+                </form>
+                <form action="/delete" method="post" >
+                    <button type="submit" name="book" value="<%= book.id %>">DELETE</button>
+                </form>
+            </div>
+        </div>
+    <% }); %>
+
+<%- include('partials/footer.ejs'); -%>
